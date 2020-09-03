@@ -42,8 +42,8 @@ export function useChannel<T extends StructedClonable>(
   channelId: string,
   onmessage?: (ev: MessageEvent<T>) => void
 ): [(message: T) => void] {
-  let channel: React.MutableRefObject<BroadcastChannel | null> = React.useRef(
-    null
+  let channel = React.useRef(
+    null as BroadcastChannel | null
   );
   React.useEffect(() => {
     channel.current = new window.BroadcastChannel(channelId);
