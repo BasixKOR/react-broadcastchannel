@@ -25,6 +25,9 @@ const App = () => {
 };
 ```
 
+## What is BroadcastChannel API?
+[BroadcastChannel API](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel) allows to communicate between browsing contexts such as iframes, browser tabs, or even workers on the same origin.
+
 ## API
 ### useChannel
 ```ts
