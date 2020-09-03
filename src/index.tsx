@@ -38,7 +38,7 @@ export interface MessageEvent<T extends StructedClonable> extends globalThis.Mes
   readonly data: T;
 }
 
-export function useChannel<T extends StructedClonable>(
+export function useBroadcastChannel<T extends StructedClonable>(
   channelId: string,
   onmessage?: (ev: MessageEvent<T>) => void
 ): [(message: T) => void] {

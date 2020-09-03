@@ -1,11 +1,11 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { useChannel } from '../.';
+import { useBroadcastChannel } from '../.';
 
 const App = () => {
   const [count, setCount] = React.useState(0);
-  const [post] = useChannel<number>('counter', ev => setCount(ev.data))
+  const [post] = useBroadcastChannel<number>('counter', ev => setCount(ev.data))
 
   const handler = () => {
     post(count + 1);

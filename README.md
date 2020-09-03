@@ -1,14 +1,17 @@
 # react-broadcastchannel
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/BasixKOR/react-broadcastchannel/CI?style=flat-square)
+![npm bundle size](https://img.shields.io/bundlephobia/min/react-broadcastchannel?style=flat-square)
+![npm](https://img.shields.io/npm/dy/react-broadcastchannel?style=flat-square)
 
-This library gives you a simple hook `useChannel` to post or receive message from/to channels.
+This library gives you a simple hook `useBroadcastChannel` to post or receive message from/to channels.
 
 ```tsx
 import * as React from 'react';
-import { useChannel } from 'react-broadcastchannel';
+import { useBroadcastChannel } from 'react-broadcastchannel';
 
 const App = () => {
   const [count, setCount] = React.useState(0);
-  const [post] = useChannel<number>('counter', ev => setCount(ev.data))
+  const [post] = useBroadcastChannel<number>('counter', ev => setCount(ev.data))
 
   const handler = () => {
     post(count + 1);
@@ -29,7 +32,7 @@ const App = () => {
 [BroadcastChannel API](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel) allows to communicate between browsing contexts such as iframes, browser tabs, or even workers on the same origin.
 
 ## API
-### useChannel
+### useBroadcastChannel
 ```ts
-const [post] = useChannel<Message>('channel-id', event => event.data)
+const [post] = useBroadcastChannel<Message>('channel-id', event => event.data)
 ```
