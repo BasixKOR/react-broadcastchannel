@@ -4,11 +4,19 @@ import * as ReactDOM from 'react-dom';
 import { useChannel } from '../.';
 
 const App = () => {
-  const post = useChannel<string>('test')
+  const [count, setCount] = React.useState(0);
+  const [post] = useChannel<number>('counter', ev => setCount(ev.data))
+
+  const handler = () => {
+    post(count + 1);
+    setCount(count => count + 1);
+  }
 
   return (
     <div>
-      <input />
+      <button onClick={handler}>
+        {count}
+      </button>
     </div>
   );
 };
