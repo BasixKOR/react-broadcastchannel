@@ -30,7 +30,7 @@ export type StructedClonable =
   | ImageBitmap
   | ImageData
   | StructedClonable[]
-  | Object
+  | Object // FIXME: should not allow 'non-plain' objects
   | Map<StructedClonable, StructedClonable>
   | Set<StructedClonable>;
 
