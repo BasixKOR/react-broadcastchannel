@@ -46,6 +46,9 @@ export function useBroadcastChannel<T extends StructedClonable>(
   React.useEffect(() => {
     channel.current = new window.BroadcastChannel(channelId);
     if(onmessage) channel.current.onmessage = onmessage;
+    channel.current.onmessageerror = ev => {
+      throw new Error("BroadcastChannel Error while deserializing: " + ev.origin);
+    }
     return () => channel.current && channel.current.close();
   }, []);
 
