@@ -46,7 +46,7 @@ export function useBroadcastChannel<T extends StructedClonable>(
   React.useEffect(() => {
     channel.current = new window.BroadcastChannel(channelId);
     if(onmessage) channel.current.onmessage = onmessage;
-    return () => channel.current?.close();
+    return () => channel.current && channel.current.close();
   }, []);
 
   let post = (message: T) => channel.current.postMessage(message);
